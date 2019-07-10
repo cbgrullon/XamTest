@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TestXam.MainPageDetail"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Posts"
+    mc:Ignorable="d">
+    <StackLayout Padding="10" BackgroundColor="White">
+        <AbsoluteLayout IsVisible="{Binding IsBusy}" VerticalOptions="CenterAndExpand">
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0.5,0.5,100,100"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                IsVisible="{Binding IsBusy}">
+                <ActivityIndicator
+                    IsRunning="{Binding IsBusy}"
+                    IsVisible="{Binding IsBusy}"
+                    Color="DodgerBlue" />
+                <Label
+                    FontSize="20"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Loading..." />
+            </StackLayout>
+        </AbsoluteLayout>
+        <ListView
+            x:Name="posts"
+            HasUnevenRows="True"
+            IsVisible="{Binding CanShow}"
+            ItemsSource="{Binding ToShow}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="85" />
+                            </Grid.RowDefinitions>
+                            <StackLayout
+                                VerticalOptions="CenterAndExpand"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Padding="2">
+                                <BoxView
+                                    CornerRadius="70"
+                                    HeightRequest="55"
+                                    WidthRequest="55"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Color="CornflowerBlue" />
+                            </StackLayout>
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Text="{Binding Title}"
+                                TextColor="Black"
+                                VerticalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
