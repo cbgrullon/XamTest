@@ -40,16 +40,16 @@
                                 <RowDefinition Height="85" />
                             </Grid.RowDefinitions>
                             <StackLayout
-                                VerticalOptions="CenterAndExpand"
                                 Grid.Row="0"
                                 Grid.Column="0"
-                                Padding="2">
+                                Padding="2"
+                                VerticalOptions="CenterAndExpand">
                                 <BoxView
                                     CornerRadius="70"
                                     HeightRequest="55"
-                                    WidthRequest="55"
                                     HorizontalOptions="Center"
                                     VerticalOptions="Center"
+                                    WidthRequest="55"
                                     Color="CornflowerBlue" />
                             </StackLayout>
 
