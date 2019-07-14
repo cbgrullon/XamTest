@@ -27,7 +27,9 @@
             x:Name="posts"
             HasUnevenRows="True"
             IsVisible="{Binding CanShow}"
-            ItemsSource="{Binding ToShow}">
+            ItemsSource="{Binding ToShow}"
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsBusy}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

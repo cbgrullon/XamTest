@@ -22,6 +22,7 @@ namespace TestXam
             BindingContext = viewModel;
             posts.ItemTapped += Posts_ItemTapped;
             viewModel?.FillPostsCommand?.Execute(null);
+            posts.RefreshCommand = viewModel.FillPostsCommand;
         }
 
         private void Posts_ItemTapped(object sender, ItemTappedEventArgs e)
